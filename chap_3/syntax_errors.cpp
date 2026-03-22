@@ -2,15 +2,13 @@
 
 double addNumbers() {
   int const x{5};
-  int const y_num{10};
-  return x + y_num;
+  int const y{10};
+  return x + y;
 }
 int main() {
   int const x{10};
-  int y{0};
-  int z;
+  int const y{3};
   std::cout << "10/0: " << (x / y) << '\n';
   std::cout << addNumbers() << '\n';
-  std::cout << z << '\n';
   return 0;
 }
