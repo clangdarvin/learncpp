@@ -4,14 +4,14 @@
 
 // Question 1
 void displayQuestion1() {
-  int const user_age{24};
-  bool const user_check_updates{false};
-  double const pi{3.14159265};
-  double const pages_of_jurassic_park{464};
-  float const couch_length_ft{5.12F};
-  std::int32_t const times_blinked{5000000};
-  char const user_choice{'a'};
-  std::int16_t const birth_year_of_albert_camus{1913};
+  constexpr int user_age{24};
+  constexpr bool user_check_updates{false};
+  constexpr double pi{3.14159265};
+  constexpr int pages_of_jurassic_park{464};
+  constexpr float couch_length_ft{5.12F};
+  constexpr std::int32_t times_blinked{5000000};
+  constexpr char user_choice{'a'};
+  constexpr std::int16_t birth_year_of_albert_camus{1913};
 
   std::cout << "Age: " << user_age << '\n';
   std::cout << std::boolalpha << "Check updates? " << user_check_updates
@@ -47,7 +47,8 @@ char getArithmeticOperatorInput() {
   return arithmetic_operator;
 }
 
-double performCalculation(double x, double y, char arithmetic_operator) {
+constexpr double performCalculation(double x, double y,
+                                    char arithmetic_operator) {
   switch (arithmetic_operator) {
     case '+':
       return (x + y);
@@ -87,10 +88,10 @@ double getTowerHeightInput() {
   return tower_height_m;
 }
 
-double calculateBallHeight(double tower_height_m, int x_seconds) {
-  double const gravity_constant{9.8};
-  double distance_fallen{gravity_constant * (x_seconds * x_seconds) / 2};
-  double ball_height{tower_height_m - distance_fallen};
+constexpr double calculateBallHeight(double tower_height_m, int x_seconds) {
+  constexpr double gravity_constant{9.8};
+  const double distance_fallen{gravity_constant * (x_seconds * x_seconds) / 2};
+  const double ball_height{tower_height_m - distance_fallen};
   if (ball_height < 0.0) {
     return 0.0;
   }
@@ -110,7 +111,7 @@ void displayBallHeight(double ball_height, int x_seconds) {
 
 void performSimulation(double tower_height_m) {
   double ball_height{};
-  double const n_iterations{6};
+  constexpr int n_iterations{6};
   for (int i = 0; i < n_iterations; i++) {
     ball_height = calculateBallHeight(tower_height_m, i);
     displayBallHeight(ball_height, i);
@@ -123,14 +124,14 @@ int main() {
   displayQuestion1();
 
   // === Question 2 ===
-  double x{getNumberInput()};
-  double y{getNumberInput()};
-  char arithmetic_operator{getArithmeticOperatorInput()};
-  double result{performCalculation(x, y, arithmetic_operator)};
+  const double x{getNumberInput()};
+  const double y{getNumberInput()};
+  const char arithmetic_operator{getArithmeticOperatorInput()};
+  const double result{performCalculation(x, y, arithmetic_operator)};
   displayResult(x, y, arithmetic_operator, result);
 
   // === Question 3 ===
-  double tower_height_m{getTowerHeightInput()};
+  const double tower_height_m{getTowerHeightInput()};
   performSimulation(tower_height_m);
   return 0;
 }
