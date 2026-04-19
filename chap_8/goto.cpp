@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+
 namespace {
 void goTo1() {
   double x{};
@@ -31,7 +32,7 @@ end:
 }  // namespace
 
 int main() {
-  // goTo1();
+  goTo1();
   goTo2();
   return 0;
 }
