@@ -43,6 +43,38 @@ void danglingPointers() {
 }
 }  // namespace
 
+namespace Quiz {
+void displayQuestion1() {
+  short value{7};
+  short other_value{3};
+
+  short* ptr{&value};
+
+  std::cout << '\n';
+  std::cout << &value << '\n';
+  std::cout << value << '\n';
+  std::cout << ptr << '\n';
+  std::cout << *ptr << '\n';
+  std::cout << '\n';
+
+  *ptr = 9;
+  std::cout << &value << '\n';
+  std::cout << value << '\n';
+  std::cout << ptr << '\n';
+  std::cout << *ptr << '\n';
+  std::cout << '\n';
+
+  ptr = &other_value;
+  std::cout << &other_value << '\n';
+  std::cout << other_value << '\n';
+  std::cout << ptr << '\n';
+  std::cout << *ptr << '\n';
+  std::cout << '\n';
+
+  std::cout << sizeof(ptr) << '\n';
+  std::cout << sizeof(*ptr) << '\n';
+}
+}  // namespace Quiz
 auto main() -> int {
   // int x{20};
   // displayAddress(x);
@@ -72,5 +104,7 @@ auto main() -> int {
 
   std::cout << '\n';
   danglingPointers();
+
+  Quiz::displayQuestion1();
   return 0;
 }
