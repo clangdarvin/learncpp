@@ -49,16 +49,40 @@ void printFirstAlpha(const std::string& s1, const std::string s2) {
   }
 }
 
+const std::string& firstAlpha(const std::string& a, const std::string& b) {
+  return (a < b) ? a : b;
+}
+
+std::string getHello() { return "Hello"; }
+
+const std::string& foo(const std::string& s) { return s; }
+
+int& max(int& x, int& y) { return (x > y) ? x : y; }
 }  // namespace
 
 auto main() -> int {
   std::cout << "Program Name: " << getProgramName() << '\n';
   // displayCounters();
-  const int id_1{getNextID()};
-  const int id_2{getNextID()};
+  // const int id_1{getNextID()};
+  // const int id_2{getNextID()};
+  //
+  // std::cout << id_1 << ", " << id_2 << '\n';
+  // printFirstAlpha(getName(), getName());
+  // std::string wello{"wello"};
+  // std::string world{"world"};
+  // std::cout << firstAlpha(wello, world) << '\n';
+  // const std::string s{getHello()};
+  const std::string s{foo(getHello())};
+  std::cout << s << '\n';
+  // int y{4};
+  // const int& ref{y};
+  // const int* ptr{&y};
 
-  std::cout << id_1 << ", " << id_2 << '\n';
-  printFirstAlpha(getName(), getName());
+  int x{10};
+  int y{15};
+
+  max(x, y) = 20;
+  std::cout << x << ", " << y << '\n';
   return 0;
 }
 
