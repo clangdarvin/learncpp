@@ -62,5 +62,12 @@ auto main() -> int {
     std::cout << "Result: " << *result << '\n';
   }
   quiz();
+
+  if (shirt != green) {
+    std::cout << "You're not wearing blue." << '\n';
+  } else {
+    std::cout << "Since you're wearing green, are you into nature stuff?"
+              << '\n';
+  }
   return 0;
 }
