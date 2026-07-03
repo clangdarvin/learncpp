@@ -78,5 +78,7 @@ auto main() -> int {
   displayAnimalInfo(Animal::cat);
   displayAnimalInfo(Animal::chicken);
   displayAnimalInfo(static_cast<Animal>(99));
+
+  std::cout << static_cast<int>(Animal::chicken) << '\n';
   return 0;
 }
